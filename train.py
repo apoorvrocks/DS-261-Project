@@ -43,19 +43,6 @@ CN_train = load_obj(data_path + 'CN_train_full')
 CN_val = load_obj(data_path + 'CN_val_full')
 CN_test = load_obj(data_path + 'CN_test_full')
 
-sweep_config = {
-    'method': 'grid'
-    }
-metric = {
-    'name': 'val_acc',
-    'goal': 'maximize'   
-    }
-
-sweep_config['metric'] = metric
-
-
-
-
 class EarlyStopping:
     """Early stops the training if validation acc doesn't improve after a given patience."""
     def __init__(self, patience=7, verbose=False, delta=0, path='checkpoint.pt', trace_func=print):
@@ -379,28 +366,17 @@ def train(mode):
 
     return best_hyperparameters
 
-#best_hyperparameters = train('Fusion')
+best_hyperparameters = train('Fusion')
 
-#best_hyperparameters = eval('Fusion')
-#print(f'Mode:FusionI, best_hyperparameters={best_hyperparameters}')
+print(f'Mode:FusionI, best_hyperparameters={best_hyperparameters}')
 
-#best_hyperparameters = train('Without_fMRI')
-#best_hyperparameters = eval('Without_fMRI')
-#print(f'Mode:Without_fMRI, best_hyperparameters={best_hyperparameters}')
+best_hyperparameters = train('Without_fMRI')
+
+print(f'Mode:Without_fMRI, best_hyperparameters={best_hyperparameters}')
 
 best_hyperparameters = train('Only_fMRI')
-best_hyperparameters = eval('Only_fMRI')
 print(f'Mode:Only_fMRI, best_hyperparameters={best_hyperparameters}')
     
-
-    
-
-
-
-
-
-                        
-
 
                 
 
