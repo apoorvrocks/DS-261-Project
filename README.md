@@ -7,3 +7,5 @@ train.py - This file contains the code to run the model with different hyper par
 Dataset.py - This file contains code to preprocess and load data
 
 models.py - This file contains all the models used
+
+BrainNetGAN.py - This file contains the code to train Brain Net GAN and generate new AD , CN brain graphs
